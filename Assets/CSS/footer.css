@@ -1,0 +1,41 @@
+.footer {
+  background-color: rgb(12, 12, 12);
+  width: 93vw;
+  height: auto;
+  padding: 15px;
+  display: flex;
+  padding-left: 5vw;
+  align-items: start;
+  flex-direction: column;
+  border-radius: 10px 10px 0px 0px;
+
+  h3 {
+    color: red;
+    font-size: 25px;
+    margin: 0px;
+    font-family: "mass";
+  }
+  .p {
+    color: white;
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    font-size: 17px;
+    font-family: system-ui;
+    svg {
+      color: #eb4114;
+    }
+  }
+}
+
+.footerIcon {
+    width: 30px;
+    /* filter: invert(1) sepia(1) saturate(7) hue-rotate(30deg); */
+}
+.p:hover  {
+    text-shadow: 0 0 10px #eb4114;
+}
+
+.home {
+    cursor: pointer;
+}

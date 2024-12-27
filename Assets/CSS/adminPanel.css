@@ -1,0 +1,24 @@
+.adminpanel {
+  display: grid;
+  grid-template-columns: 30vw 30vw 30vw;
+  justify-content: center;
+  background-color: #d9dacf;
+  padding: 10px;
+}
+
+.panel {
+  justify-self: center;
+  cursor: pointer;
+  transition: margin-top 0.4s ease;
+  font-weight: 600;
+}
+
+.panel:hover {
+  margin-top: -3px;
+}
+
+@media (max-width: 600px) {
+  .panel {
+    font-size: 10px;
+  }
+}

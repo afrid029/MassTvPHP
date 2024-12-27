@@ -1,0 +1,102 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.otherVideo {
+  width: 95vw;
+}
+h4 {
+  margin-bottom: 10px;
+  font-family: system-ui;
+  color: #737373;
+}
+hr {
+  border: 2px solid #dcdcdc;
+  margin-bottom: 20px;
+  width: 89vw;
+}
+
+@media (min-width: 1600px) {
+  .wrapper{
+    top: 27vh;
+  }
+  h4 {
+    margin-left: 20px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1600px) {
+  .wrapper{
+    top: 26vh;
+  }
+  h4 {
+    margin-left: 20px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .wrapper {
+    top: 15vh;
+  }
+  h4 {
+    margin-left: 18px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+.wrapper{
+    top: 14vh;
+}
+  h4 {
+    margin-left: 15px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 960px) {
+  .wrapper{
+    top: 10vh;
+  }
+  h4 {
+    margin-left: 15px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper{
+    top: 13vh;
+  }
+  h4 {
+    margin-left: 10px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    top: 9vh;
+  }
+  h4 {
+    margin-left: 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .wrapper {
+    top: 7vh;
+  }
+  h4 {
+    margin-left: 10px;
+    font-size: 12px;
+  }
+}

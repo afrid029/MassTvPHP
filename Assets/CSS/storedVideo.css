@@ -1,0 +1,110 @@
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 30vw;
+}
+
+
+@media (min-width: 1600px) {
+   .card-container{
+    width: 22vw;
+   }
+    
+}
+
+@media (max-width: 1600px) {
+    .card-container{
+        width: 22vw;
+       }
+}
+
+@media (max-width: 1200px) {
+    .card-container{
+        width: 30vw;
+       }
+}
+
+@media (max-width: 1024px) {
+    .card-container{
+        width: 45vw;
+       }
+}
+
+.card {
+  border-radius: 15px;
+  height: 250px;
+  background-color: #e9e9f9;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.card:hover {
+  transform: scale(1.005);
+  /* margin: 10px 0px 20px 0px; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.card-media {
+  background-image: url(../images/masstvlogo.png);
+  background-size: cover;
+  object-fit: contain;
+  width: 100%;
+  height: 180px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-media:hover {
+  .playIcon {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(218, 216, 216, 0.705);
+  }
+}
+
+.card-content {
+  height: 70px;
+  /* height: 46px; Maximum height for the container */
+  overflow: hidden; /* Hide overflow */
+  padding: 5px;
+  p {
+    display: -webkit-box; /* Enable multi-line truncation */
+    -webkit-box-orient: vertical; /* Set the box orientation to vertical */
+    -webkit-line-clamp: 3; /* Limit text to 3 lines */
+    overflow: hidden; /* Hide text that exceeds the limit */
+    text-overflow: ellipsis; /* Add ellipsis (...) at the end of the last visible line */
+    margin: auto;
+    text-align: center;
+    font-weight: 550;
+  }
+}
+
+.playIcon {
+  position: absolute;
+  border-radius: 100%;
+
+  img {
+    width: 50px;
+    height: 50px;
+  }
+}
+.btn-del {
+  background-color: red;
+  color: white;
+  width: inherit;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  justify-content: center;
+  display: inline-flex;
+  height: 4vh;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btn-del:hover {
+  background-color: white;
+  color: red;
+  border: 1px solid red;
+}
