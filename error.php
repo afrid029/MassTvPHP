@@ -1,4 +1,21 @@
-<?php
-echo "<h1>404 - Page Not Found</h1>";
-echo "<p>The page you're looking for does not exist.</p>";
-?>
+<html>
+    <head>
+        <link rel="stylesheet" href="../masstv/Assets/CSS/error.css">
+    </head>
+
+    <script> 
+        function navigateToHome(){
+            window.open("/");
+        }
+    </script>
+
+    <body>
+    <div class="error">
+            <h1 ><span style="margin-right:10px;"> <img style="margin-right:10px; width: 24px; height: 24px" src="../masstv/assets/images/file-corrupted-svgrepo-com.svg" alt="Icon" /></span>Page Not Found</h1>
+            <div class="goback" onclick="navigateToHome()">Go to Home</div>
+        </div>
+        <div class="foot">
+
+        </div>
+    </body>
+</html>

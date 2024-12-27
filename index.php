@@ -3,6 +3,7 @@
 <head>
     <title>MASS TV</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/jpg" href="../masstv/Assets/images/mainLogo.jpg" />
     <link rel="stylesheet" href="../masstv/Assets/CSS/dashboard.css">
     <link rel="stylesheet" href="../masstv/Assets/CSS/adminPanel.css">
     <link rel="stylesheet" href="../masstv/Assets/CSS/social.css">
