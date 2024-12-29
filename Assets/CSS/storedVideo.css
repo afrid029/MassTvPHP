@@ -6,30 +6,28 @@
   width: 30vw;
 }
 
-
 @media (min-width: 1600px) {
-   .card-container{
+  .card-container {
     width: 22vw;
-   }
-    
+  }
 }
 
 @media (max-width: 1600px) {
-    .card-container{
-        width: 22vw;
-       }
+  .card-container {
+    width: 22vw;
+  }
 }
 
 @media (max-width: 1200px) {
-    .card-container{
-        width: 30vw;
-       }
+  .card-container {
+    width: 30vw;
+  }
 }
 
 @media (max-width: 1024px) {
-    .card-container{
-        width: 45vw;
-       }
+  .card-container {
+    width: 45vw;
+  }
 }
 
 .card {
@@ -59,8 +57,13 @@
 
 .card-media:hover {
   .playIcon {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(218, 216, 216, 0.705);
+    /* transform: scale(1.1); */
+    display: flex;
+    /* box-shadow: 0 0 20px rgba(218, 216, 216, 0.705); */
+  }
+
+  .contentbg {
+    display: flex;
   }
 }
 
@@ -68,7 +71,7 @@
   height: 70px;
   /* height: 46px; Maximum height for the container */
   overflow: hidden; /* Hide overflow */
-  padding: 5px;
+  padding: 10px;
   p {
     display: -webkit-box; /* Enable multi-line truncation */
     -webkit-box-orient: vertical; /* Set the box orientation to vertical */
@@ -81,9 +84,17 @@
   }
 }
 
+.contentbg {
+  background-color: #1e1e1ecc;
+  width: inherit;
+  height: 180px;
+  border-radius: 15px;
+  display: none;
+}
+
 .playIcon {
   position: absolute;
-  border-radius: 100%;
+  display: none;
 
   img {
     width: 50px;

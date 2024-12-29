@@ -1,3 +1,5 @@
+<?php include("../masstv/Controllers/dbconnectivity.php") ?>
+
 <html>
 
 <head>
@@ -7,10 +9,59 @@
     <link rel="stylesheet" href="../masstv/Assets/CSS/dashboard.css">
     <link rel="stylesheet" href="../masstv/Assets/CSS/adminPanel.css">
     <link rel="stylesheet" href="../masstv/Assets/CSS/social.css">
-    <script src="../masstv/Assets/JS/masstv.js"></script>
+
+    <script>
+        function handleLoginModel(value) {
+            let loginModel = document.getElementById('loginModel').style;
+
+
+            if (value === 'true') {
+                document.getElementById('password').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('submit').disabled = true;
+                loginModel.display = 'flex';
+            } else {
+                loginModel.display = 'none';
+            }
+            // value ? loginModel.display = 'flex' : loginModel.display = 'none';
+
+            // console.log(loginModel);
+
+        }
+    </script>
 </head>
 
-<body>
+<body style="width: 97vw;">
+
+    <?php
+    if (isset($_SESSION['fromAction']) && $_SESSION['fromAction'] === true) { ?>
+
+
+        <div class="alert-container" id="alert">
+            <div class="alert" id="alertCont">
+                <p><?php echo $_SESSION['message'] ?></p>
+            </div>
+        </div>
+
+        <?php
+        if ($_SESSION['status'] === true) {
+            echo "<script>document.getElementById('alertCont').style.backgroundColor = '#1D7524';</script>";
+        } else {
+            echo "<script>document.getElementById('alertCont').style.backgroundColor = '#E44C4C';</script>";
+        }
+        ?>
+        <script>
+            document.getElementById('alert').style.display = 'flex';
+            setTimeout(() => {
+                document.getElementById('alert').style.display = 'none';
+            }, 3000);
+        </script>
+    <?php
+    }
+    $_SESSION['fromAction'] = false;
+
+    ?>
+
 
     <div style="background-image: url('../masstv/Assets/images/masstvlogo.png')"
         class="jumbotron "
@@ -22,47 +73,17 @@
                     <img src="../masstv/Assets/images/tv.webp" style="width: 32px; transform: rotate(-10deg); align-items:center;" />
                 </div>
                 <div class="col-2 align-center">
-                    <div class="btn-signin">Sign In</div>
-                    <!-- {isloggedin ? (
-                <Button
-                    color="error"
-                    onClick={Logout}
-                    sx={{
-                      borderRadius: "25px",
-                      "&:hover": {
-                        backgroundColor: "#E44C4C",
-                        color: "white",
-                        border: "1px solidrgb(255, 255, 255)",
-                      },
-                    }}
-                    variant="outlined"
-                    size="small">
-                    Log Out
-                </Button>
-                ) : (
-                <Button
-                    onClick={()=> LoginModalHandler(true)}
-                    sx={{
-                      borderRadius: "25px",
-                      "&:hover": {
-                        backgroundColor: "#1565c0",
-                        color: "white",
-                        border: "1px solid #B8BAB9",
-                      },
-                    }}
-                    variant="outlined"
-                    size="small"
-                    >
-                    Sign in
-                </Button>
-                )} -->
+                    <?php if (isset($_SESSION['isloggedin']) && $_SESSION['isloggedin'] === true) { ?>
+                        <div class="btn-logout">Logout</div>
+                    <?php } else { ?>
+                        <div onclick="handleLoginModel('true')" class="btn-signin">Sign In</div>
+                    <?php } ?>
                 </div>
             </div>
 
-            <!-- {isloggedin ?
-        <AdminPanel /> : ""} -->
-
-            <?php include('./components/adminpanel.php') ?>
+            <?php if (isset($_SESSION['isloggedin']) && $_SESSION['isloggedin'] === true) {
+                include('./components/adminPanel.php');
+            } ?>
         </header>
 
         <div class="mass">MASS TV . CA</div>
@@ -78,7 +99,12 @@
     </div>
     <?php include('./components/StoredVideoContainer.php') ?>
 
-   
+    <!-- Models -->
+    <?php include('./Models/login.php') ?>
+    <?php include('./Models/AddLive.php') ?>
+
+
+
 
 </body>
 
