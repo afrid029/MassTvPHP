@@ -1,4 +1,4 @@
-<?php include("../masstv/Controllers/dbconnectivity.php") ?>
+<?php session_start(); ?>
 
 <html>
 
@@ -27,6 +27,11 @@
 
             // console.log(loginModel);
 
+        }
+
+        function logOut() {
+            document.getElementById('logoutbtn').style.pointerEvents = 'none';
+            window.location.href = '/logout';
         }
     </script>
 </head>
@@ -60,12 +65,21 @@
     }
     $_SESSION['fromAction'] = false;
 
+    $db = mysqli_connect('localhost', 'root', '', 'mydb');
+    $query = "select * from logo order by updatedAt desc limit 1";
+    $result = mysqli_query($db, $query);
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $cover = $row['image'];
+    }
+    $db->close();
     ?>
 
 
-    <div style="background-image: url('../masstv/Assets/images/masstvlogo.png')"
+    <div style="background-image: url('<?php echo $cover ?? '../masstv/Assets/images/masstvlogo.png'; ?>');"
         class="jumbotron "
         id="banner">
+        <div class="overlay"></div>
         <header>
             <div class="row">
                 <div class="col-2 header">
@@ -74,7 +88,7 @@
                 </div>
                 <div class="col-2 align-center">
                     <?php if (isset($_SESSION['isloggedin']) && $_SESSION['isloggedin'] === true) { ?>
-                        <div class="btn-logout">Logout</div>
+                        <div onclick="logOut()" id="logoutid" class="btn-logout">Logout</div>
                     <?php } else { ?>
                         <div onclick="handleLoginModel('true')" class="btn-signin">Sign In</div>
                     <?php } ?>
@@ -102,6 +116,8 @@
     <!-- Models -->
     <?php include('./Models/login.php') ?>
     <?php include('./Models/AddLive.php') ?>
+    <?php include('./Models/AddVideo.php') ?>
+    <?php include('./Models/UpdateLogo.php') ?>
 
 
 

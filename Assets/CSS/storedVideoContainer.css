@@ -33,7 +33,7 @@ hr {
 
 @media (max-width: 1600px) {
   .wrapper{
-    top: 26vh;
+    top: 27vh;
   }
   h4 {
     margin-left: 20px;
@@ -53,7 +53,7 @@ hr {
 
 @media (max-width: 1024px) {
 .wrapper{
-    top: 14vh;
+    top: 18vh;
 }
   h4 {
     margin-left: 15px;
@@ -63,7 +63,7 @@ hr {
 
 @media (max-width: 960px) {
   .wrapper{
-    top: 10vh;
+    top: 12vh;
   }
   h4 {
     margin-left: 15px;

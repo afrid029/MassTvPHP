@@ -15,6 +15,15 @@
   flex-direction: column;
 }
 
+.overlay {
+  background-color: #000000;
+  width: 97vw;
+  height: inherit;
+  opacity: 0.6;
+  position: absolute;
+  border-radius: inherit;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -108,12 +117,14 @@
   align-items: center;
   cursor: pointer;
   font-size: 12px;
+  font-family: sans-serif;
 }
 
 .btn-signin:hover {
   background-color: #4589cc;
   color: white;
   border-color: #ffffff;
+  box-shadow: 0px 0px 20px #1767b691;
 }
 
 .btn-logout {
@@ -128,12 +139,14 @@
   align-items: center;
   cursor: pointer;
   font-size: 12px;
+  font-family: sans-serif;
 }
 
 .btn-logout:hover {
   background-color: #cc4545;
   color: white;
   border-color: #ffffff;
+  box-shadow: 0px 0px 20px #cc4545a2;
 }
 
 .mass {
@@ -322,7 +335,7 @@
 
 @media (max-width: 960px) {
   .live {
-    top: 13vh;
+    top: 14vh;
     left: 4vw;
   }
 }

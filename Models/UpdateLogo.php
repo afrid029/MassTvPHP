@@ -1,7 +1,7 @@
 <html>
 
 <head>
-   
+
     <style>
         .close-button {
             background-color: red;
@@ -21,52 +21,51 @@
     </style>
 
     <script>
-        function validateLiveForm() {
-            let url = document.getElementById('url');
-            let button = document.getElementById('liveupload');
+        function validateLogoForm() {
+            let image = document.getElementById('logo');
+            let button = document.getElementById('logoupload');
 
-            let urlPattern = /^https?:\/\/.+\.(m3u8)$/;
-
-            if (urlPattern.test(url.value)) {
+            if (image.value) {
                 button.disabled = false;
             } else {
                 button.disabled = true;
             }
         }
-
-        function submitLiveform(){
-             let button = document.getElementById('liveupload');
-              button.disabled = true;
-              return true;
+        function submitLogoForm() {
+             let button = document.getElementById('logoupload');
+             button.disabled = true;
+             return true;
         }
     </script>
 </head>
 
 <body>
     <div
-        class="modal-overlay" id="addLiveModel"
+        class="modal-overlay" id="addLogoModel"
         style=" background-image: url('<?php echo $cover ?? '../masstv/Assets/images/masstvlogo.png'; ?>')">
-        <div class="modal-content" onclick="event.stopPropagation()">
+        <div class="modal-content">
             <button
-                onclick="handleAddLiveModel('false')"
+                onclick="handleLogoModel('false')"
                 class="close-button">
                 X
             </button>
-            <h2>Update Live Stream</h2>
-            <form action="/addlive"  method="post" class="Form" oninput="validateLiveForm()" onsubmit="return submitLiveform()">
+            <h2>Update Logo</h2>
+            <form action="/addlogo" method="post" class="Form" oninput="validateLogoForm()" enctype="multipart/form-data" onsubmit="submitLogoForm()" >
+
                 <div class="FormRow">
-                    <label htmlFor="url">Paste Live Stream URL Here (.m3u8)</label>
+                    <label htmlFor="image">Upload Logo</label>
                     <input
-                        type="url"
-                        name="url"
-                        id="url" />
+                        type="file"
+                        name="logo"
+                        id="logo"
+                        accept="image/*" />
                 </div>
 
                 <button
                     type="submit"
                     disabled="true"
-                    id="liveupload"
-                    name="liveupload"
+                    id="logoupload"
+                    name="logoupload"
                     class="upload">
                     Upload
                 </button>

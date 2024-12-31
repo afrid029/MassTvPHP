@@ -1,7 +1,6 @@
-<?php include('./dbconnectivity.php');
+<?php 
 if (isset($_POST['submit'])) {
-
-    include('../Controllers/dbconnectivity.php');
+    include('./dbconnectivity.php');
     $email = $_POST['email'];
     $password = $_POST['password'];
     $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
@@ -12,12 +11,13 @@ if (isset($_POST['submit'])) {
         $_SESSION['isloggedin'] = true;
         $_SESSION['status'] = true;
         $_SESSION['message'] = "Admin Logged In Successfully!";
-
+        $db->close();
         header('Location: /');
     } else {
         $_SESSION['message'] = "Invalid Email or Password";
         $_SESSION['isloggedin'] = false;
         $_SESSION['status'] = false;
+        $db->close();
         header('Location: /');
     }
 }else{

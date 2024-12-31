@@ -30,6 +30,13 @@
             //     event.target.style.border = '1px solid green';
             // }
         }
+        function submitLoginform() {
+            let button = document.getElementById('submit');
+             button.disabled = true;
+             console.log('returning true');
+             
+             return true;
+        }
     </script>
 </head>
 
@@ -38,14 +45,14 @@
 <body>
     <div
         class="modal-overlay" id="loginModel" onclick="handleLoginModel('false')"
-        style=" background-image: url('../masstv/Assets/images/masstvlogo.png')">
+        style=" background-image: url('<?php echo $cover ?? '../masstv/Assets/images/masstvlogo.png'; ?>')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="banner">
                 <h2> <span style="color:red">WWW.</span>MASSTV<span style="color:red">.CA</span></h2>
             </div>
             <h4>Login</h4>
 
-            <form action="/login" method="post" oninput="validateForm()">
+            <form action="/login" method="post" oninput="validateForm()" onsubmit="return submitLoginform()">
                 <div class="Form">
                     <div class="FormRow">
                         <label htmlFor="email">Email</label>
@@ -68,7 +75,7 @@
                         id="submit"
                         name="submit"
                         disabled="true"
-                        class="upload" req> Login
+                        class="upload"> Login
 
                     </button>
             </form>
