@@ -33,7 +33,9 @@
         }
         function submitLogoForm() {
              let button = document.getElementById('logoupload');
-             button.disabled = true;
+            let button2 = document.getElementById('logouploading');
+            button.style.display = 'none';
+            button2.style.display = 'block';
              return true;
         }
     </script>
@@ -63,11 +65,17 @@
 
                 <button
                     type="submit"
-                    disabled="true"
                     id="logoupload"
                     name="logoupload"
                     class="upload">
                     Upload
+                </button>
+                <button
+                    disabled="true"
+                    id="logouploading"
+                    style="display: none;"
+                    class="upload">
+                    Uploading...
                 </button>
             </form>
         </div>

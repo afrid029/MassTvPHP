@@ -30,9 +30,14 @@
         }
 
         function logOut() {
-            document.getElementById('logoutbtn').style.pointerEvents = 'none';
+            // document.getElementById('logoutbtn').style.pointerEvents = 'none';
+            let button = document.getElementById('logout');
+            let button2 = document.getElementById('logouting');
+            button.style.display = 'none';
+            button2.style.display = 'flex';
             window.location.href = '/logout';
         }
+
     </script>
 </head>
 
@@ -72,7 +77,7 @@
         $row = mysqli_fetch_assoc($result);
         $cover = $row['image'];
     }
-    $db->close();
+    mysqli_close($db);
     ?>
 
 
@@ -83,12 +88,13 @@
         <header>
             <div class="row">
                 <div class="col-2 header">
-                    <span style="color: red; font-weight: 900">MASS</span>
-                    <img src="../masstv/Assets/images/tv.webp" style="width: 32px; transform: rotate(-10deg); align-items:center;" />
+                    <!-- <span style="color: red; font-weight: 900">MASS</span> -->
+                    <img src="../masstv/Assets/images/massweblogo2.png" style="width: 128px;  align-items:center;" />
                 </div>
                 <div class="col-2 align-center">
                     <?php if (isset($_SESSION['isloggedin']) && $_SESSION['isloggedin'] === true) { ?>
-                        <div onclick="logOut()" id="logoutid" class="btn-logout">Logout</div>
+                        <div onclick="logOut()" id="logout" class="btn-logout">Logout</div>
+                        <div  style="display: none; font-size: 10px; background-color: #DE9322; color: white;" id="logouting" class="btn-logout">Loging Out...</div>
                     <?php } else { ?>
                         <div onclick="handleLoginModel('true')" class="btn-signin">Sign In</div>
                     <?php } ?>

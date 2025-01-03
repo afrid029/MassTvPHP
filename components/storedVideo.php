@@ -25,15 +25,15 @@
             </div>
         </div>
 
-        <?php if (isset($_SESSION['isloggedin']) && $_SESSION['isloggedin']) { ?>
-
-            <form style="width: inherit;" action="/deletevideo" method="post">
+      
+            <form class="deleteForm"  style="width: inherit;" action="/deletevideo" method="post">
                 <input type="hidden" name="id" value="<?php echo $id ?>">
                 <input type="hidden" name="image" value="<?php echo $image ?>">
                 <button type="submit" name="delete" class="btn-del">Delete</button>
             </form>
-        <?php }
-        ?>
+       
+
+       
 
     </div>
 </body>

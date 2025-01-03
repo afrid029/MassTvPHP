@@ -34,13 +34,13 @@ if (isset($_POST['logoupload'])) {
         $_SESSION['message'] = "Logo Uploaded Successfully!";
         $_SESSION['status'] = true;
         $_SESSION['fromAction'] = true;
-        $db->close();
+        mysqli_close($db);
         header('Location: /');
     } else {
         $_SESSION['message'] = "Failed to upload Logo!";
         $_SESSION['status'] = false;
         $_SESSION['fromAction'] = true;
-        $db->close();
+        mysqli_close($db);
         header('Location: /');
     }
 } else {

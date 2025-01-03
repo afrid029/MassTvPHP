@@ -11,13 +11,13 @@ if (isset($_POST['submit'])) {
         $_SESSION['isloggedin'] = true;
         $_SESSION['status'] = true;
         $_SESSION['message'] = "Admin Logged In Successfully!";
-        $db->close();
+        mysqli_close($db);
         header('Location: /');
     } else {
         $_SESSION['message'] = "Invalid Email or Password";
         $_SESSION['isloggedin'] = false;
         $_SESSION['status'] = false;
-        $db->close();
+        mysqli_close($db);
         header('Location: /');
     }
 }else{

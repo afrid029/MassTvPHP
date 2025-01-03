@@ -35,8 +35,10 @@
         }
 
         function submitLiveform(){
-             let button = document.getElementById('liveupload');
-              button.disabled = true;
+            let button = document.getElementById('liveupload');
+            let button2 = document.getElementById('liveuploading');
+            button.style.display = 'none';
+            button2.style.display = 'block';
               return true;
         }
     </script>
@@ -69,6 +71,13 @@
                     name="liveupload"
                     class="upload">
                     Upload
+                </button>
+                <button
+                    disabled="true"
+                    id="liveuploading"
+                    style="display: none;"
+                    class="upload">
+                    Uploading...
                 </button>
             </form>
         </div>

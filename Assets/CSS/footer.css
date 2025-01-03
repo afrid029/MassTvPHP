@@ -1,13 +1,25 @@
+.footer-container{
+  background-color: rgb(12, 12, 12);
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+ 
+  border-radius: 10px 10px 0px 0px;
+
+
+}
+
+
+
 .footer {
   background-color: rgb(12, 12, 12);
-  width: 93vw;
+  width: 50vw;
   height: auto;
-  padding: 15px;
+  /* padding: 15px; */
   display: flex;
   padding-left: 5vw;
-  align-items: start;
   flex-direction: column;
-  border-radius: 10px 10px 0px 0px;
+  
 
   h3 {
     color: red;
@@ -39,3 +51,93 @@
 .home {
     cursor: pointer;
 }
+
+.feedback {
+  display: flex;
+  width: 50vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto 10px;
+}
+
+.feedback-row{
+  overflow: hidden;
+  display: flex;;
+  /* flex-direction: row; */
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  margin: 5px;
+  width: 100%;
+
+}
+
+.feedback-col {
+  width: 50%;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  input {
+    height: 40px;
+    border-radius: 7px;
+    border-color: transparent;
+    width: 90%;
+  }
+}
+
+#message {
+
+  height: 100px;
+  border-radius: 7px;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 5px;
+  margin: 5px;
+}
+
+#feedback-btn {
+  width: 100%;
+  background-color: #eb4114;
+  border-radius: 7px;
+  color: white;
+  font-weight: 800;
+  border-color: transparent;
+  margin: 5px;
+  height: 45px;
+}
+
+input:focus {
+ /* Change the border color to green when focused */
+  outline: none;  /* Remove the default outline */
+  background-color: #f0f0f0;  
+  box-shadow: 0px 0px 20px #eb4114;
+}
+
+textarea:focus {
+  outline: none;  /* Remove the default outline */
+  background-color: #f0f0f0;  
+  box-shadow: 0px 0px 20px #eb4114;
+} 
+
+@media(max-width: 900px){
+  .footer {
+    width: 90vw;
+  }
+  .footer-container{
+    flex-direction: column;
+  }
+
+  .feedback {
+    width: 90vw;
+    margin: auto;
+  }
+
+  .feedback-row {
+    width: 80vw;
+
+  }
+}
+
+
+
+

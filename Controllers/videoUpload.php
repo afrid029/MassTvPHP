@@ -4,6 +4,8 @@ if (isset($_POST['videoupload'])) {
     include('./dbconnectivity.php');
     $title = $_POST['title'];
     $url = $_POST['videourl'];
+    $category = $_POST['category'];
+    
 
     $targetDirectory = "../../public/upload/";
 
@@ -28,21 +30,25 @@ if (isset($_POST['videoupload'])) {
     $randomId = rand(1000, 99999);
     $ID = $timeStampId . $randomId;
 
-    $query = "INSERT INTO videos (title, url, ID, image) VALUES ('$title', '$url', '$ID','$targetFile')";
+    $query = "INSERT INTO videos (title, url, ID, image, category) VALUES ('$title', '$url', '$ID','$targetFile', '$category')";
     $result = mysqli_query($db, $query);
     if ($result) {
         $_SESSION['message'] = "Video Uploaded Successfully!";
         $_SESSION['status'] = true;
         $_SESSION['fromAction'] = true;
-        $db->close();
+        mysqli_close($db);
         header('Location: /');
     } else {
         $_SESSION['message'] = "Failed to upload video!";
         $_SESSION['status'] = false;
         $_SESSION['fromAction'] = true;
-        $db->close();
+        mysqli_close($db);
         header('Location: /');
     }
-} else {
+} else { 
+
+    
     header('Location: /');
 }
+
+?>

@@ -1,10 +1,6 @@
 .wrapper {
   position: relative;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
+ 
 }
 
 .otherVideo {
@@ -21,8 +17,114 @@ hr {
   width: 89vw;
 }
 
+.category {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.videos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.more {
+  color: #d65215;
+  /* transform: translateY(-100%); */
+  transition: 1s;
+  margin-left: 2vw;
+  width: 25vw;
+  border: 1px solid;
+  border-radius: 25px;
+  padding: 0.2rem;
+  display: grid;
+  justify-items: center;
+  margin-top: 10px;
+  cursor: pointer;
+  
+}
+
+.less {
+  color: green;
+  /* transform: translateY(0px); */
+  transition: 1s;
+  margin-left: 2vw;
+  width: 25vw;
+  border: 1px solid;
+  border-radius: 25px;
+  padding: 0.2rem;
+  display: grid;
+  justify-items: center;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+
 @media (min-width: 1600px) {
-  .wrapper{
+  .less, .more {
+    width: 22vw;
+  }
+  
+}
+
+@media (max-width: 1600px) {
+  .less, .more {
+    width: 22vw;
+  }
+}
+
+@media (max-width: 1200px) {
+  .less, .more {
+    width: 22vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .less, .more {
+    width: 22vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .less, .more {
+    width: 30vw;
+    font-size: 13px;
+  }
+}
+@media (max-width: 400px) {
+  .less, .more {
+    width: 35vw;
+    font-size: 12px;
+  }
+}
+
+.Community-add,
+.Religious-add,
+.Politics-add,
+.Stage-add {
+  opacity: 0;
+  transform: scale(0); /* Start with the element shifted */
+  transition: transform 0.2s ease;
+}
+
+.Community-add.active,
+.Religious-add.active,
+.Politics-add.active,
+.Stage-add.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.Community-add.inactive,
+.Religious-add.inactive,
+.Politics-add.inactive,
+.Stage-add.inactive {
+  opacity: 0;
+  transform: scale(0);
+}
+@media (min-width: 1600px) {
+  .wrapper {
     top: 27vh;
   }
   h4 {
@@ -32,7 +134,7 @@ hr {
 }
 
 @media (max-width: 1600px) {
-  .wrapper{
+  .wrapper {
     top: 27vh;
   }
   h4 {
@@ -52,9 +154,9 @@ hr {
 }
 
 @media (max-width: 1024px) {
-.wrapper{
+  .wrapper {
     top: 18vh;
-}
+  }
   h4 {
     margin-left: 15px;
     font-size: 18px;
@@ -62,7 +164,7 @@ hr {
 }
 
 @media (max-width: 960px) {
-  .wrapper{
+  .wrapper {
     top: 12vh;
   }
   h4 {
@@ -72,7 +174,7 @@ hr {
 }
 
 @media (max-width: 768px) {
-  .wrapper{
+  .wrapper {
     top: 13vh;
   }
   h4 {

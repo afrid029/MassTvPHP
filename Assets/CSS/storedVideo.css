@@ -4,6 +4,7 @@
   align-items: center;
   flex-direction: column;
   width: 30vw;
+  margin: 0px 1px;
 }
 
 @media (min-width: 1600px) {

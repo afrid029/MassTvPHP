@@ -9,7 +9,7 @@
         $stream = '';
     }
 
-    $db->close();
+    mysqli_close($db);
 ?>
 
 <html>

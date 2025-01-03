@@ -30,12 +30,13 @@
             //     event.target.style.border = '1px solid green';
             // }
         }
+
         function submitLoginform() {
             let button = document.getElementById('submit');
-             button.disabled = true;
-             console.log('returning true');
-             
-             return true;
+            let button2 = document.getElementById('submiting');
+            button.style.display = 'none';
+            button2.style.display = 'block';
+            return true;
         }
     </script>
 </head>
@@ -59,24 +60,29 @@
                         <input
                             type="email"
                             name="email"
-                            id="email" default="afrid@gmail.com" required />
+                            id="email" required />
                     </div>
                     <div class="FormRow">
                         <label htmlFor="password">Password</label>
                         <input
                             type="password"
                             name="password"
-                            id="password" default="sdsad" required />
+                            id="password" required />
                     </div>
 
                     <button
-
                         type="submit"
                         id="submit"
                         name="submit"
                         disabled="true"
                         class="upload"> Login
+                    </button>
 
+                    <button
+                        style="display: none;"
+                        id="submiting"
+                        disabled="true"
+                        class="upload"> logging in...
                     </button>
             </form>
         </div>
