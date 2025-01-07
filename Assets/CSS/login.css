@@ -56,13 +56,16 @@
   flex-direction: column;
   margin: auto;
   margin-bottom: 10px !important;
-  label {
+}
+
+.FormRow label {
     width: 95%;
     margin-bottom: 10px !important;
     margin: auto;
     text-align: left;
   }
-  input {
+  
+  .FormRow input {
     width: 95%;
     height: 25px;
     border-radius: 5px;
@@ -70,7 +73,6 @@
     border: transparent;
     margin: auto;
   }
-}
 
 .upload {
   height: 40px;
@@ -88,12 +90,12 @@
   justify-content: center;
   gap: 15px;
   align-items: center;
+}
 
-  img {
-    width: 50px;
-    height: 50px;
-    animation: wave 2s linear infinite;
-  }
+.banner  img {
+  width: 50px;
+  height: 50px;
+  animation: wave 2s linear infinite;
 }
 
 @keyframes wave {

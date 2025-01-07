@@ -41,7 +41,7 @@ if (isset($_POST['feedback'])) {
         $mail->Body    = "<h5>Hi Afrid</h5>
                         <h5>You have feedback from $name $surename </h5>
                         <p>$message</p>
-                        <h6>With Regards<br>$name $surename<br>$email<br>$mobile</h6>";
+                        <h5>With Regards<br>$name $surename<br>$email<br>$mobile</h5>";
 
         // Debugging (optional, turn off in production)
         //$mail->SMTPDebug = 2;  // Set this to 2 for verbose debugging output (0 = off, 1 = client, 2 = client and server)

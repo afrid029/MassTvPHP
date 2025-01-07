@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="card-content">
-                <p><?php echo $title ?>  </p>
+                <p class="content-text"><?php echo $title ?>  </p>
             </div>
         </div>
 

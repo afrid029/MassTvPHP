@@ -1,15 +1,11 @@
-.footer-container{
+.footer-container {
   background-color: rgb(12, 12, 12);
   display: flex;
   flex-direction: row;
   align-items: start;
- 
+
   border-radius: 10px 10px 0px 0px;
-
-
 }
-
-
 
 .footer {
   background-color: rgb(12, 12, 12);
@@ -19,37 +15,38 @@
   display: flex;
   padding-left: 5vw;
   flex-direction: column;
-  
+}
 
-  h3 {
-    color: red;
-    font-size: 25px;
-    margin: 0px;
-    font-family: "mass";
-  }
-  .p {
-    color: white;
-    align-items: center;
-    display: flex;
-    gap: 10px;
-    font-size: 17px;
-    font-family: system-ui;
-    svg {
-      color: #eb4114;
-    }
-  }
+.footer-h3 {
+  color: red;
+  font-size: 25px;
+  margin: 0px;
+  font-family: "mass";
+}
+
+.p {
+  color: white;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  font-size: 17px;
+  font-family: system-ui;
+}
+
+.p svg {
+  color: #eb4114;
 }
 
 .footerIcon {
-    width: 30px;
-    /* filter: invert(1) sepia(1) saturate(7) hue-rotate(30deg); */
+  width: 30px;
+  /* filter: invert(1) sepia(1) saturate(7) hue-rotate(30deg); */
 }
-.p:hover  {
-    text-shadow: 0 0 10px #eb4114;
+.p:hover {
+  text-shadow: 0 0 10px #eb4114;
 }
 
 .home {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .feedback {
@@ -61,15 +58,14 @@
   margin: auto 10px;
 }
 
-.feedback-row{
+.feedback-row {
   overflow: hidden;
-  display: flex;;
+  display: flex;
   /* flex-direction: row; */
   /* flex-wrap: wrap; */
   justify-content: center;
   margin: 5px;
   width: 100%;
-
 }
 
 .feedback-col {
@@ -77,16 +73,17 @@
   margin: 5px;
   display: flex;
   justify-content: center;
-  input {
-    height: 40px;
-    border-radius: 7px;
-    border-color: transparent;
-    width: 90%;
-  }
+ 
+}
+
+.feedback-col  input {
+  height: 40px;
+  border-radius: 7px;
+  border-color: transparent;
+  width: 90%;
 }
 
 #message {
-
   height: 100px;
   border-radius: 7px;
   width: 100%;
@@ -107,23 +104,23 @@
 }
 
 input:focus {
- /* Change the border color to green when focused */
-  outline: none;  /* Remove the default outline */
-  background-color: #f0f0f0;  
+  /* Change the border color to green when focused */
+  outline: none; /* Remove the default outline */
+  background-color: #f0f0f0;
   box-shadow: 0px 0px 20px #eb4114;
 }
 
 textarea:focus {
-  outline: none;  /* Remove the default outline */
-  background-color: #f0f0f0;  
+  outline: none; /* Remove the default outline */
+  background-color: #f0f0f0;
   box-shadow: 0px 0px 20px #eb4114;
-} 
+}
 
-@media(max-width: 900px){
+@media (max-width: 900px) {
   .footer {
     width: 90vw;
   }
-  .footer-container{
+  .footer-container {
     flex-direction: column;
   }
 
@@ -134,10 +131,5 @@ textarea:focus {
 
   .feedback-row {
     width: 80vw;
-
   }
 }
-
-
-
-

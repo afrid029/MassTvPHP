@@ -56,7 +56,6 @@
   justify-content: center;
   align-items: center;
   background-position: center;
-  ;
 }
 
 .card-media:hover {
@@ -76,18 +75,19 @@
   /* height: 46px; Maximum height for the container */
   overflow: hidden; /* Hide overflow */
   padding: 10px;
-  p {
-    display: -webkit-box; /* Enable multi-line truncation */
-    -webkit-box-orient: vertical; /* Set the box orientation to vertical */
-    -webkit-line-clamp: 3; /* Limit text to 3 lines */
-    overflow: hidden; /* Hide text that exceeds the limit */
-    text-overflow: ellipsis; /* Add ellipsis (...) at the end of the last visible line */
-    margin: auto;
-    text-align: center;
-    font-weight: 550;
-    font-size: 0.84rem;
-    font-family: sans-serif;
-  }
+}
+
+.content-text {
+  display: -webkit-box; /* Enable multi-line truncation */
+  -webkit-box-orient: vertical; /* Set the box orientation to vertical */
+  -webkit-line-clamp: 3; /* Limit text to 3 lines */
+  overflow: hidden; /* Hide text that exceeds the limit */
+  text-overflow: ellipsis; /* Add ellipsis (...) at the end of the last visible line */
+  margin: auto;
+  text-align: center;
+  font-weight: 550;
+  font-size: 0.84rem;
+  font-family: sans-serif;
 }
 
 .contentbg {
@@ -101,12 +101,13 @@
 .playIcon {
   position: absolute;
   display: none;
-
-  img {
-    width: 50px;
-    height: 50px;
-  }
 }
+
+.playIcon  img {
+  width: 50px;
+  height: 50px;
+}
+
 .btn-del {
   background-color: red;
   color: white;

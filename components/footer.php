@@ -8,7 +8,7 @@
 
     <div class="footer-container">
         <div class='footer'>
-            <h3>Contact</h3>
+            <h3 class="footer-h3">Contact</h3>
             <p class="p home" onclick="window.location.href='https://masspro.ca/en/'">
                 <img class="footerIcon" src="../masstv/Assets/images/home.svg" />Mass Production Limited
                 <img style="width: 24px;" src="../masstv/Assets/images/forward.svg" />

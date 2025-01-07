@@ -23,6 +23,11 @@ hr {
   flex-direction: column;
 }
 
+.category h3 {
+
+  color: #F36868;
+}
+
 .videos {
   display: flex;
   flex-wrap: wrap;

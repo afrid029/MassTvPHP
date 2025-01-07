@@ -29,10 +29,12 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 10px;
-  .col-2 {
-    display: inline-flex;
-    justify-content: center;
-  }
+ 
+}
+
+.row  .col-2 {
+  display: inline-flex;
+  justify-content: center;
 }
 
 .col-2 {
@@ -47,43 +49,37 @@
 }
 
 @media (min-width: 1024px) {
-  .col-2 {
-    Button {
+  .col-2 Button {
       font-size: 12px;
     }
-  }
+  
 }
 
 @media (max-width: 1024px) {
-  .col-2 {
-    Button {
+  .col-2 Button {
       font-size: 12px;
     }
-  }
+  
 }
 
 @media (max-width: 768px) {
-  .col-2 {
-    Button {
+  .col-2 Button {
       font-size: 12px;
     }
-  }
+  
 }
 
 @media (max-width: 600px) {
-  .col-2 {
-    Button {
+  .col-2 Button {
       font-size: 10px;
     }
-  }
+  
 }
 
 @media (max-width: 480px) {
-  .col-2 {
-    Button {
+  .col-2 Button {
       font-size: 8px;
     }
-  }
 }
 
 .header {
@@ -300,9 +296,11 @@
   gap: 10px;
   position: relative;
   margin: 15px;
-  h5 {
-    margin: 0px;
-  }
+  
+}
+
+.live h5 {
+  margin: 0px;
 }
 
 @media (min-width: 1600px) {
@@ -421,19 +419,20 @@
   position: fixed;
   color: #f3efef;
   z-index: 1000;
+}
 
-  .alert {
-    border-radius: 5px;
-    background-color: black;
-    width: 60vw;
-    display: flex;
-    align-items: center;
-    margin: auto;
-    p {
-      text-align: left;
-      margin: 15px;
-      width: inherit;
-      font-size: 12px;
-    }
-  }
+.alert-container  .alert {
+  border-radius: 5px;
+  background-color: black;
+  width: 60vw;
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+
+.alert-container .alert p {
+  text-align: left;
+  margin: 15px;
+  width: inherit;
+  font-size: 12px;
 }
