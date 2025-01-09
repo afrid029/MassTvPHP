@@ -1,6 +1,7 @@
 .hlsWrapper {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 .hls-player {
   width: 60vw;
@@ -40,7 +41,7 @@
     height: 50vh;
     width: 90vw;
     position: relative;
-    top: 25vh;
+    top: 34vh;
   }
 }
 
@@ -49,7 +50,7 @@
     height: 45vh;
     width: 90vw;
     position: relative;
-    top: 22vh;
+    top: 18vh;
   }
 }
 
@@ -58,7 +59,7 @@
     height: 45vh;
     width: 90vw;
     position: relative;
-    top: 22vh;
+    top: 16vh;
   }
 }
 
@@ -67,7 +68,7 @@
     height: 45vh;
     width: 90vw;
     position: relative;
-    top: 18vh;
+    top: 16vh;
   }
 }
 
@@ -76,7 +77,7 @@
     height: 45vh;
     width: 90vw;
     position: relative;
-    top: 18vh;
+    top: 19vh;
   }
 }
 
@@ -97,9 +98,107 @@
   }
 }
 
-.hls-player video {
+
+.live {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  margin: 15px;
+  
+}
+
+.live h5 {
+  margin: 0px;
+}
+
+@media (min-width: 1600px) {
+
+  .live h5 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 1600px) {
+
+  .live h5 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  
+  .live h5 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  
+  .live h5 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 960px) {
+ 
+  .live h5 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .live h5 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .live h5 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  
+  .live h5 {
+    font-size: 1rem;
+  }
+}
+
+.liveIcon {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 100%;
+}
+
+.liveIcon {
+  animation: blink 0.6s linear infinite alternate;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.video {
   width: 100%;
   height: inherit;
   border-radius: 15px;
   object-fit: cover; /* Optional: add a border radius to the video itself */
+}
+
+.full-video {
+  width: 100vw;
+  height: 100vh;
+  border-radius: 15px;
+  object-fit: contain; /* Optional: add a border radius to the video itself */
 }

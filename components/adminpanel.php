@@ -1,7 +1,7 @@
 <html>
     <head>
     
-    <link rel="stylesheet" href="../masstv/Assets/CSS/adminPanel.css">
+    <link rel="stylesheet" href="Assets/CSS/adminPanel.css">
 
     <script>
         function handleAddLiveModel(value) {

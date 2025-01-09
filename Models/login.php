@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="../masstv/Assets/CSS/login.css">
+    <link rel="stylesheet" href="Assets/CSS/login.css">
 
     <script>
         // function submitform() {
@@ -46,7 +46,7 @@
 <body>
     <div
         class="modal-overlay" id="loginModel" onclick="handleLoginModel('false')"
-        style=" background-image: url('<?php echo $cover ?? '../masstv/Assets/images/masstvlogo.png'; ?>')">
+        style=" background-image: url('<?php echo $cover ?? 'Assets/images/masstvlogo.png'; ?>')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="banner">
                 <h2> <span style="color:red">WWW.</span>MASSTV<span style="color:red">.CA</span></h2>

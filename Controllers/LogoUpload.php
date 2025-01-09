@@ -3,7 +3,7 @@
 if (isset($_POST['logoupload'])) {
     include('./dbconnectivity.php');
 
-    $targetDirectory = "../../public/upload/";
+    $targetDirectory = "../public/upload/";
 
     // Get the file extension
     $imageFileType = strtolower(pathinfo($_FILES["logo"]["name"], PATHINFO_EXTENSION));

@@ -5,10 +5,11 @@
 <head>
     <title>MASS TV</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/jpg" href="../masstv/Assets/images/mainLogo.jpg" />
-    <link rel="stylesheet" href="../masstv/Assets/CSS/dashboard.css">
-    <link rel="stylesheet" href="../masstv/Assets/CSS/adminPanel.css">
-    <link rel="stylesheet" href="../masstv/Assets/CSS/social.css">
+    
+    <link rel="icon" type="image/png" href="Assets/images/massweblogo3.png" />
+    <link rel="stylesheet" href="Assets/CSS/dashboard.css">
+    <link rel="stylesheet" href="Assets/CSS/adminPanel.css">
+    <link rel="stylesheet" href="Assets/CSS/social.css">
 
     <script>
         function handleLoginModel(value) {
@@ -41,7 +42,7 @@
     </script>
 </head>
 
-<body style="width: 97vw;">
+<body style="width: 100vw; display: contents;">
 
     <?php
     if (isset($_SESSION['fromAction']) && $_SESSION['fromAction'] === true) { ?>
@@ -71,6 +72,37 @@
     $_SESSION['fromAction'] = false;
 
     $db = mysqli_connect('localhost', 'root', '', 'mydb');
+
+
+    if (!isset($_COOKIE['user'])) {
+        $_SESSION['isloggedin'] = false;
+    } else {
+
+        $data = base64_decode($_COOKIE['user']);
+
+        // Extract the IV (the first 16 bytes)
+        $iv = substr($data, 0, 16);
+
+        // Extract the encrypted email (the rest of the string)
+        $encryptedEmail = substr($data, 16);
+        $key = 'a1b2c3d4e5f67890123456789abcdef0123456789abcdef0123456789abcdef';
+        // Decrypt the email using AES-256-CBC decryption
+        $decryptedEmail = openssl_decrypt($encryptedEmail, 'aes-256-cbc', $key, 0, $iv);
+
+        $query = "SELECT * from users where email = '$decryptedEmail'";
+
+        $result = mysqli_query($db, $query);
+
+        if (mysqli_num_rows($result) == 1) {
+            // echo "Helloooooo";
+
+            $_SESSION['isloggedin'] = true;
+        } else {
+            $_SESSION['isloggedin'] = false;
+            setcookie('user', '', time() - 3600, '/');
+        }
+    }
+
     $query = "select * from logo order by updatedAt desc limit 1";
     $result = mysqli_query($db, $query);
     if (mysqli_num_rows($result) > 0) {
@@ -81,7 +113,7 @@
     ?>
 
 
-    <div style="background-image: url('<?php echo $cover ?? '../masstv/Assets/images/masstvlogo.png'; ?>');"
+    <div style="background-image: url('<?php echo $cover ?? 'Assets/images/masstvlogo.png'; ?>');"
         class="jumbotron "
         id="banner">
         <div class="overlay"></div>
@@ -89,41 +121,38 @@
             <div class="row">
                 <div class="col-2 header">
                     <!-- <span style="color: red; font-weight: 900">MASS</span> -->
-                    <img src="../masstv/Assets/images/massweblogo2.png" style="width: 128px;  align-items:center;" />
+                    <img src="Assets/images/massweblogo2.png" style=" align-items:center;" />
                 </div>
                 <div class="col-2 align-center">
                     <?php if (isset($_SESSION['isloggedin']) && $_SESSION['isloggedin'] === true) { ?>
-                        <div onclick="logOut()" id="logout" class="btn-logout">Logout</div>
-                        <div  style="display: none; font-size: 10px; background-color: #DE9322; color: white;" id="logouting" class="btn-logout">Loging Out...</div>
+                        <div onclick="logOut()" id="logout" class="btn btn-logout">Logout</div>
+                        <div  style="display: none; font-size: 10px; background-color: #DE9322; color: white;" id="logouting" class="btn btn-logout">Loging Out...</div>
                     <?php } else { ?>
-                        <div onclick="handleLoginModel('true')" class="btn-signin">Sign In</div>
+                        <div onclick="handleLoginModel('true')" class="btn btn-signin">Sign In</div>
                     <?php } ?>
                 </div>
             </div>
 
             <?php if (isset($_SESSION['isloggedin']) && $_SESSION['isloggedin'] === true) {
-                include('./components/adminPanel.php');
+                include('components/adminPanel.php');
             } ?>
         </header>
 
-        <div class="mass">MASS TV . CA</div>
+        
 
-        <?php include('./components/social.php') ?>
-        <?php include('./components/liveVideo.php') ?>
+        <?php include('components/social.php') ?>
+        <?php include('components/liveVideo.php') ?>
 
 
     </div>
-    <div class="live">
-        <h5>Live TV</h5>
-        <div class="liveIcon"> </div>
-    </div>
-    <?php include('./components/StoredVideoContainer.php') ?>
+    
+    <?php include('components/StoredVideoContainer.php') ?>
 
     <!-- Models -->
-    <?php include('./Models/login.php') ?>
-    <?php include('./Models/AddLive.php') ?>
-    <?php include('./Models/AddVideo.php') ?>
-    <?php include('./Models/UpdateLogo.php') ?>
+    <?php include('Models/login.php') ?>
+    <?php include('Models/AddLive.php') ?>
+    <?php include('Models/AddVideo.php') ?>
+    <?php include('Models/UpdateLogo.php') ?>
 
 
 

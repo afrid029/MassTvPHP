@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="../masstv/Assets/CSS/storedVideoContainer.css">
+    <link rel="stylesheet" href="Assets/CSS/storedVideoContainer.css">
 </head>
 
 <script>
@@ -25,8 +25,8 @@
         url = 'no',
         value
     }) {
-        let player = document.getElementById('videoPlayerModel').style;
-        let Notplayer = document.getElementById('VideoNotAvailableModel').style;
+        let player = document.getElementById('videoPlayerModel');
+        let Notplayer = document.getElementById('VideoNotAvailableModel');
         var video = document.getElementById('video');
 
         if (value === 'true') {
@@ -37,39 +37,47 @@
             if (embadedUrl) {
 
                 document.getElementById('videoPlayer').src = embadedUrl;
-                player.display = 'flex';
+                player.classList.remove('closing');
+                player.style.display = 'flex';
 
             } else {
-                Notplayer.display = 'flex';
+                Notplayer.style.display = 'flex';
             }
 
 
         } else {
             document.getElementById('videoPlayer').src = '';
-            player.display = 'none';
-            Notplayer.display = 'none';
+
+            player.classList.add('closing')
+
+            setTimeout(() => {
+                player.style.display = 'none';
+                Notplayer.style.display = 'none';
+                // player.classList.remove('closing')
+            }, 500)
+
             video.play();
 
         }
 
     }
 
-    function reloadCss() {
-                const elements = document.querySelectorAll('.deleteForm');
-                <?php if (isset($_SESSION['isloggedin']) && $_SESSION['isloggedin']): ?>
-                   
-                    elements.forEach(element => {
-                        element.style.display = 'flex';
-                    });
+    // function reloadCss() {
+    //             const elements = document.querySelectorAll('.deleteForm');
+    //            
 
-                <?php else : ?>
+    //                 elements.forEach(element => {
+    //                     element.style.display = 'flex';
+    //                 });
 
-                    elements.forEach(element => {
-                        element.style.display = 'none';
-                    });
+    //           
 
-                <?php endif; ?>
-            }
+    //                 elements.forEach(element => {
+    //                     element.style.display = 'none';
+    //                 });
+
+    //            
+    //         }
 </script>
 
 <body>
@@ -77,17 +85,17 @@
     <div class="wrapper">
         <div class="otherVideo">
             <h4>Our Playlist</h4>
-            <hr />
+            <!-- <hr /> -->
         </div>
         <?php
-        include('./Models/VideoPlayer.php');
-        include('./Models/VideoNotAvailable.php');
+        include('Models/VideoPlayer.php');
+        include('Models/VideoNotAvailable.php');
 
         $db = mysqli_connect('localhost', 'root', '', 'mydb');
         $query = "With RankedVideo as
                     (Select *, ROW_NUMBER() 
                     over (partition by category order by updatedat desc) as rn from videos)
-                    Select * from RankedVideo where rn <= 20";
+                    Select * from RankedVideo where rn <= 6";
         $result = mysqli_query($db, $query);
         if (mysqli_num_rows($result) > 0) {
 
@@ -101,7 +109,7 @@
                 $playlist = ($category == 'Stage') ? 'Stage Events' : (($category == 'Community') ? 'Community Events' : (($category == 'Religious') ? 'Religious Events' : 'Political Events'));
                 echo "<div class='category' >";
                 echo "<h3>$playlist</h3>";
-                echo "<hr />";
+                echo "<hr class='hr2'/>";
                 echo "<div class='videos' id=$category>";
                 $i = 0;
                 foreach ($videos as $video) {
@@ -110,20 +118,23 @@
                         $url = $video['url'];
                         $image = $video['image'];
                         $id = $video['ID'];
-                        include('./components/storedVideo.php');
+                        include('components/storedVideo.php');
                         array_shift($categories[$category]);
-                    } 
+                    } else {
+                        $i++;
+                        break;
+                    }
                     $i++;
                 } ?>
 
-                <script>reloadCss();</script>
-                <?php
+                <!-- <script>reloadCss();</script> -->
+        <?php
                 echo "</div>";
                 echo "</div>";
 
 
-                if (count($categories[$category]) > 0) {
-                    echo "<div  class='$category-more more'  onclick = loadAditonalVideos(event)>More Videos</div>";
+                if ($i == 6) {
+                    echo "<div style='display: grid'><div  class='more'  onclick = loadAditonalVideos('$category-All')><span class='second'>More</span> <i>Videos ></i></div></div>";
                 }
             }
         } else {
@@ -132,77 +143,82 @@
 
         mysqli_close($db);
 
-        include('./components/footer.php');
+        include('components/footer.php');
 
         ?>
 
 
         <script>
-            function loadAditonalVideos(event) {
+            function loadAditonalVideos(value) {
 
-                const classNames = event.target.className;
-                const className = classNames.split(' ')[0];
-                console.log(className);
+                console.log(value);
 
-
-                const type = className.substring(className.indexOf('-') + 1);
-                const categ = className.substring(0, className.indexOf('-'));
-
-                if (type == "more") {
-
-                    const fetchedData = <?php echo json_encode($categories); ?>;
-                    const datas = fetchedData[categ];
-
-                    datas.forEach(data => {
-                        xhr = new XMLHttpRequest();
-                        xhr.open('POST', 'masstv/components/AdditionalVideo.php', true);
-                        xhr.setRequestHeader('Content-Type', 'application/json');
-                        xhr.onload = function() {
-                            if (this.status === 200) {
-                                const div1 = document.createElement('div');
-                                div1.setAttribute('class', categ + '-add');
-                                div1.innerHTML = this.responseText;
-                                div1.style.display = 'flex';
-                                div1.style.flexWrap = 'wrap';
-                                div1.style.transition = 'all 0.5s';
-                                div1.style.justifyContent = 'space-around';
-                                document.getElementById(categ).appendChild(div1);
-
-                                reloadCss();
-
-                                setTimeout(() => {
-                                    div1.classList.add('active');
-                                }, 100);
-                            }
-                        }
-                        xhr.send(JSON.stringify(data));
+                window.open(value, '_self')
 
 
-                    });
+                // const classNames = event.target.className;
+                // const className = classNames.split(' ')[0];
+                // console.log(className);
 
-                    event.target.textContent = 'Shrink Videos';
-                    event.target.setAttribute('class', categ + '-less less');
+
+                // const type = className.substring(className.indexOf('-') + 1);
+                // const categ = className.substring(0, className.indexOf('-'));
+
+                // if (type == "more") {
+
+                //     const fetchedData = <?php echo json_encode($categories); ?>;
+                //     const datas = fetchedData[categ];
+
+                //     datas.forEach(data => {
+                //         xhr = new XMLHttpRequest();
+                //         xhr.open('POST', 'masstv/components/AdditionalVideo.php', true);
+                //         xhr.setRequestHeader('Content-Type', 'application/json');
+                //         xhr.onload = function() {
+                //             if (this.status === 200) {
+                //                 const div1 = document.createElement('div');
+                //                 div1.setAttribute('class', categ + '-add');
+                //                 div1.innerHTML = this.responseText;
+                //                 div1.style.display = 'flex';
+                //                 div1.style.flexWrap = 'wrap';
+                //                 div1.style.transition = 'all 0.5s';
+                //                 div1.style.justifyContent = 'space-around';
+                //                 document.getElementById(categ).appendChild(div1);
+
+                //                 reloadCss();
+
+                //                 setTimeout(() => {
+                //                     div1.classList.add('active');
+                //                 }, 100);
+                //             }
+                //         }
+                //         xhr.send(JSON.stringify(data));
 
 
-                } else {
-                    event.target.textContent = 'More Videos';
-                    event.target.setAttribute('class', categ + '-more more');
+                //     });
 
-                    const additionals = document.querySelectorAll('.' + categ + '-add');
+                //     event.target.textContent = 'Shrink Videos';
+                //     event.target.setAttribute('class', categ + '-less less');
 
-                    additionals.forEach(additional => {
-                        additional.classList.remove('active');
-                        additional.classList.add('inactive');
-                        setTimeout(() => {
-                            additional.classList.add('inactive');
-                        }, 100);
 
-                        setTimeout(() => {
-                            additional.style.display = 'none';
-                        }, 300);
+                // } else {
+                //     event.target.textContent = 'More Videos';
+                //     event.target.setAttribute('class', categ + '-more more');
 
-                    });
-                }
+                //     const additionals = document.querySelectorAll('.' + categ + '-add');
+
+                //     additionals.forEach(additional => {
+                //         additional.classList.remove('active');
+                //         additional.classList.add('inactive');
+                //         setTimeout(() => {
+                //             additional.classList.add('inactive');
+                //         }, 100);
+
+                //         setTimeout(() => {
+                //             additional.style.display = 'none';
+                //         }, 300);
+
+                //     });
+                // }
             }
         </script>
 

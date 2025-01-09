@@ -2,23 +2,8 @@
 
 <head>
    
-    <style>
-        .close-button {
-            background-color: red;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 50%;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-        }
-
-        .close-button:hover {
-            background-color: darkred;
-        }
-    </style>
+ <link rel="stylesheet" href="Assets/CSS/login.css">
+    
 
     <script>
         function validateLiveForm() {
@@ -47,7 +32,7 @@
 <body>
     <div
         class="modal-overlay" id="addLiveModel"
-        style=" background-image: url('<?php echo $cover ?? '../masstv/Assets/images/masstvlogo.png'; ?>')">
+        style=" background-image: url('<?php echo $cover ?? 'Assets/images/masstvlogo.png'; ?>')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button
                 onclick="handleAddLiveModel('false')"

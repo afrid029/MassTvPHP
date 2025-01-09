@@ -1,34 +1,35 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="../masstv/Assets/CSS/footer.css">
+    <link rel="stylesheet" href="Assets/CSS/footer.css">
 </head>
 
 <body>
 
     <div class="footer-container">
         <div class='footer'>
-            <h3 class="footer-h3">Contact</h3>
+            <h3 class="footer-h3">Contact Us...</h3>
             <p class="p home" onclick="window.location.href='https://masspro.ca/en/'">
-                <img class="footerIcon" src="../masstv/Assets/images/home.svg" />Mass Production Limited
-                <img style="width: 24px;" src="../masstv/Assets/images/forward.svg" />
+                <img class="footerIcon" src="Assets/images/home.svg" />Mass Production Limited
+                <img style="width: 24px;" src="Assets/images/forward.svg" />
             </p>
             <p class="p">
-                <img class="footerIcon" src="../masstv/Assets/images/location.svg" />215 Mississauga Valley Blvd, Mississauga, ON, L5A1Y7
+                <img class="footerIcon" src="Assets/images/location.svg" />215 Mississauga Valley Blvd, Mississauga, ON, L5A1Y7
             </p>
             <p class="p">
-                <img class="footerIcon" src="../masstv/Assets/images/call.svg" />+1-905-393-4080
+                <img class="footerIcon" src="Assets/images/call.svg" />+1-905-393-4080
             </p>
             <p class="p">
-                <img class="footerIcon" src="../masstv/Assets/images/time.svg" />Mon - Fri &nbsp; 09:00Am - 06:00Pm
+                <img class="footerIcon" src="Assets/images/time.svg" />Mon - Fri &nbsp; 09:00Am - 06:00Pm
             </p>
             <p class="p">
-                <img class="footerIcon" src="../masstv/Assets/images/letter.svg" /> info@masspro.ca
+                <img class="footerIcon" src="Assets/images/letter.svg" /> info@masspro.ca
             </p>
 
         </div>
 
         <form action="/sendfeedback" method="post" class="feedback">
+        <h3 class="footer-h3">We value your feedback</h3>
             <div class="feedback-row">
                 <div class="feedback-col">
                     <input type="text" name="fname" id="fname" placeholder="First Name" required>

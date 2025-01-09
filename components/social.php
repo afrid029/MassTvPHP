@@ -1,12 +1,15 @@
 <html>
     <head>
-        <link rel="stylesheet" href="../masstv/Assets/CSS/social.css">
-        <script src="../masstv/Assets/JS/masstv.js"></script>
+        <link rel="stylesheet" href="Assets/CSS/social.css">
+        <script src="Assets/JS/masstv.js"></script>
     </head>
 
     <body>
     <div class="socialWrapper">
+   
             <div class="social">
+            <div class="mass">&nbsp;MASS TV . CA </div>
+                <div class="link">
                 <div onclick="openSocialLink('https://www.facebook.com/share/14Sx4ghBhE/?mibextid=wwXIfr')"
                     class="icon"
                 >
@@ -40,6 +43,7 @@
 
                     
                   
+                </div>
                 </div>
             </div>
         </div>

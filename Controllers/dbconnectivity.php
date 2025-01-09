@@ -12,3 +12,19 @@ try {
 }
 
 ?>
+
+<!-- Prod
+DB_USER=massvbsx_masstvadmin
+DB_PASSWORD=zqZ)OKJEHcai
+DB_NAME=massvbsx_massTvSql 
+
+$db = mysqli_connect('localhost', 'massvbsx_masstvadmin', 'zqZ)OKJEHcai', 'massvbsx_massTvSql');
+-->
+
+
+
+<!-- 
+Test
+$db = mysqli_connect('localhost', 'massvbsx_masstvadmin_test', 'z?+KG!FN@IVo', 'massvbsx_massTvSql_test');
+
+-->

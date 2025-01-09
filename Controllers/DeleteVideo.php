@@ -12,7 +12,7 @@
             $_SESSION['message'] = "Video Deleted Successfully!";
             $_SESSION['status'] = true;
             $_SESSION['fromAction'] = true;
-           mysqli_close($db);
+            mysqli_close($db);
             header('Location: /');
         }else{
             $_SESSION['message'] = "Failed to delete video!";

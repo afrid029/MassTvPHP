@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="../masstv/Assets/CSS/storedVideo.css">
+    <link rel="stylesheet" href="Assets/CSS/storedVideo.css">
    
 </head>
 
@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="playIcon">
-                    <img src="../masstv/Assets/images/play-button.png" alt="">
+                    <img src="Assets/images/play-button.png" alt="">
                 </div>
             </div>
             <div class="card-content">
@@ -25,12 +25,16 @@
             </div>
         </div>
 
-      
-            <form class="deleteForm"  style="width: inherit;" action="/deletevideo" method="post">
-                <input type="hidden" name="id" value="<?php echo $id ?>">
-                <input type="hidden" name="image" value="<?php echo $image ?>">
-                <button type="submit" name="delete" class="btn-del">Delete</button>
-            </form>
+    
+            <?php 
+                if(isset($_SESSION['isloggedin']) && $_SESSION['isloggedin']){
+                    echo "<form class='deleteForm'  style='width: inherit;' action='/deletevideo' method='post'>
+                <input type='hidden' name='id' value='$id'>
+                <input type='hidden' name='image' value='$image'>
+                <button type='submit' name='delete' class='btn-del'>Delete</button>
+            </form>";
+                }
+            ?>
        
 
        

@@ -1,24 +1,9 @@
 <html>
 
 <head>
+<link rel="stylesheet" href="Assets/CSS/login.css">
 
-    <style>
-        .close-button {
-            background-color: red;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 50%;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-        }
 
-        .close-button:hover {
-            background-color: darkred;
-        }
-    </style>
 
     <script>
         function validateLogoForm() {
@@ -44,7 +29,7 @@
 <body>
     <div
         class="modal-overlay" id="addLogoModel"
-        style=" background-image: url('<?php echo $cover ?? '../masstv/Assets/images/masstvlogo.png'; ?>')">
+        style=" background-image: url('<?php echo $cover ?? 'Assets/images/masstvlogo.png'; ?>')">
         <div class="modal-content">
             <button
                 onclick="handleLogoModel('false')"

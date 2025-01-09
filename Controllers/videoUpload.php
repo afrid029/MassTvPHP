@@ -7,7 +7,7 @@ if (isset($_POST['videoupload'])) {
     $category = $_POST['category'];
     
 
-    $targetDirectory = "../../public/upload/";
+    $targetDirectory = "../public/upload/";
 
     // Get the file extension
     $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
