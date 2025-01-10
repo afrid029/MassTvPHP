@@ -70,11 +70,11 @@ mysqli_close($db);
 
         function handleFullscreenChange() {
             if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
-                console.log('The video is now in fullscreen mode');
+                // console.log('The video is now in fullscreen mode');
                 //document.querySelector('.video').c;
                 document.getElementById('video').setAttribute('class', 'full-video')
             } else {
-                console.log('The video has exited fullscreen mode');
+                // console.log('The video has exited fullscreen mode');
                 document.getElementById('video').setAttribute('class', 'video')
             }
         }

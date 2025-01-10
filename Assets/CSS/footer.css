@@ -23,6 +23,12 @@
   font-family: "mass";
 }
 
+@media(max-width: 900px){
+  .footer-h3 {
+    font-size: 1rem;
+  }
+}
+
 .p {
   color: white;
   align-items: center;

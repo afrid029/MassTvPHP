@@ -5,7 +5,7 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
-  display:none;
+  display: none;
   justify-content: center;
   align-items: center;
   z-index: 1000;
@@ -13,7 +13,6 @@
   /* animation: ModelLoad 1s linear; */
   animation: model 0.5s ease alternate;
 }
-
 
 .modal-content {
   background-color: white;
@@ -23,9 +22,7 @@
   text-align: center;
   box-shadow: 0px 0px 15px rgba(179, 179, 179, 0.9);
   transition: box-shadow 0.5s ease;
-  
 }
-
 
 @keyframes model {
   0% {
@@ -43,7 +40,6 @@
   animation: model-close 0.5s ease alternate;
 }
 
-
 @keyframes model-close {
   0% {
     opacity: 1;
@@ -55,7 +51,6 @@
     transform: scale(0);
   }
 }
-
 
 .modal-content:hover {
   box-shadow: 0px 0px 30px rgba(238, 238, 238, 0.9);
@@ -72,7 +67,7 @@
   right: 10px;
   cursor: pointer;
   border: 1px solid white;
-  transition: all 0.5s ease
+  transition: all 0.5s ease;
 }
 
 .close-button:hover {
@@ -80,7 +75,6 @@
   border-color: red;
   color: red;
 }
-
 
 .Form {
   width: 95%;
@@ -99,20 +93,19 @@
 }
 
 .FormRow label {
-    width: 95%;
-    margin-bottom: 10px !important;
-    margin: auto;
-    text-align: left;
-  }
-  
-  .FormRow input {
-    width: 95%;
-    height: 25px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 12px rgb(168, 165, 165);
-    border: transparent;
-    margin: auto;
-  }
+  width: 95%;
+  margin-bottom: 10px !important;
+  margin: auto;
+  text-align: left;
+}
+
+.FormRow input {
+  height: 40px;
+  border-radius: 7px;
+  box-shadow: 0 0 5px #00000030;
+  border-color: transparent;
+  width: 100%;
+}
 
 .upload {
   height: 40px;
@@ -132,7 +125,7 @@
   align-items: center;
 }
 
-.banner  img {
+.banner img {
   width: 50px;
   height: 50px;
   animation: wave 2s linear infinite;

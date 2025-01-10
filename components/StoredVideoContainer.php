@@ -134,7 +134,7 @@
 
 
                 if ($i == 6) {
-                    echo "<div style='display: grid'><div  class='more'  onclick = loadAditonalVideos('$category-All')><span class='second'>More</span> <i>Videos ></i></div></div>";
+                    echo "<div style='display: grid'><div  class='more'  onclick = loadAditonalVideos('$category-All')><span class='second'>More</span> <span class='third'><i>Videos ></i></span></div></div>";
                 }
             }
         } else {
