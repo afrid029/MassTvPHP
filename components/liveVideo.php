@@ -24,44 +24,36 @@ mysqli_close($db);
 <body>
     <div class="hlsWrapper">
         <div class="hls-player">
-            <video id="video" class="video" controls autoplay muted playsinline width="100%"> </video>
+            <video id="video" class="video" controls autoplay muted playsinline preload="auto" width="100%"> </video>
 
             <div class="live">
-            <h5>Live TV</h5>
-            <div class="liveIcon"> </div>
-        </div>
+                <h5>Live TV</h5>
+                <div class="liveIcon"> </div>
+            </div>
 
         </div>
 
-       
+
     </div>
 
     <script>
-        // Check if Hls.js is supported by the browser
-        if (Hls.isSupported()) {
-            //console.log('HLS Supported');
-            var video = document.getElementById('video');
-            var hls = new Hls();
+        var video = document.getElementById('video');
 
-            // Load the HLS stream source (m3u8 playlist)
-            hls.loadSource('<?php echo $stream ?>'); // Replace with your actual stream URL
-            hls.attachMedia(video);
-
-            // Event listener for when the stream is loaded and ready to play
-            hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                video.play();
-            });
-
-            // Error handling
-            hls.on(Hls.Events.ERROR, function(event, data) {
-                //console.error('HLS.js error:', data);
-            });
-        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-            // For Safari (which has native support for HLS)
-            //console.log('natively Supported');
-
-            video.src = '<?php echo $stream ?>' // Replace with your actual stream URL
+        // Try loading natively first
+        if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            console.log('Native HLS supported');
+            video.src = '<?php echo $stream ?>'; // Replace with your stream URL
             video.addEventListener('loadedmetadata', function() {
+                video.play().catch(function(error) {
+                    alert('error in playing video', error)
+                });
+            });
+        } else if (Hls.isSupported()) {
+            console.log('HLS.js supported');
+            var hls = new Hls();
+            hls.loadSource('<?php echo $stream ?>');
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function() {
                 video.play();
             });
         } else {

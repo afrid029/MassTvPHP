@@ -155,9 +155,7 @@
   width: 100%;
 }
 
-.btn-del {
-  background-color: red;
-  color: white;
+.btn {
   width: inherit;
   margin-bottom: 10px;
   border-radius: 15px;
@@ -165,9 +163,22 @@
   display: inline-flex;
   height: 4vh;
   align-items: center;
+}
+
+.btn-del {
+  background-color: red;
+  color: white;
   cursor: pointer;
   border-color: rgba(170, 86, 86, 0.521);
   transition: all 0.3s ease;
+}
+
+.btn-deleting {
+  background-color: rgb(129, 14, 14);
+  color: rgb(206, 203, 203);
+  border-color: rgba(231, 145, 145, 0.521);
+  box-shadow: 0px 0px 5px black;
+  /* display: none; */
 }
 
 .btn-del:hover {

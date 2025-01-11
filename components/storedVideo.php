@@ -30,15 +30,39 @@
             if (isset($_SESSION['isloggedin']) && $_SESSION['isloggedin']) { ?>
              <div class="deleteForm">
                  <form style='width: inherit;' action='/deletevideo' method='post'>
-                     <input type='hidden' name='id' value='$id'>
-                     <input type='hidden' name='image' value='$image'>
-                     <button type='submit' name='delete' class='btn-del'>Delete</button>
+                     <input type='hidden' name='id' value='<?php echo $id ?>'>
+                     <input type='hidden' name='image' value='<?php echo $image ?>'>
+                     <button onclick="submitDeletVideo(event)"  name='delete' class='btn btn-del'>Delete</button>
+                    
                  </form>
+                 
              </div>
 
          <?php  }
             ?>
      </div>
+
+     <script>
+
+        function submitDeletVideo(event){
+            // let button = document.getElementById('delete');
+            // let button2 = document.getElementById('deleting');
+            // button.style.display = 'none';
+            // button2.style.display = 'block';
+
+            console.log(event);
+            event.target.textContent = 'Deleting...'
+            event.target.classList=['btn btn-deleting'];
+            
+            //return true;
+        }
+
+        // const delbutton = document.querySelector('.btn-del');
+
+        // delbutton.addEventListener('click', function(){
+        //     button.setAttribute('class', 'btn btn-deleting')
+        // })
+     </script>
  </body>
 
  </html>
